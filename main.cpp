@@ -6,6 +6,7 @@ long double calculateFactor(int multiplicity, long double length, long double di
 }
 
 int main() {
+    //TODO: Input validation
     int n = 0;
     std::cout << "Podaj ilosc odleglosci: ";
     std::cin >> n;
@@ -14,6 +15,8 @@ int main() {
     long double x2[n];
     long double factor[n*2];
     long double length;
+
+    //TODO: Dodać inne jednostki niż nm
     std::cout << "Podaj dlugosc swiatla [nm]: ";
     std::cin >> length;
 
@@ -32,6 +35,7 @@ int main() {
         factor[n+i] = calculateFactor(2, length, distance, x2[i]);
     }
 
+    //TODO: Make output more clear
     std::cout << std::endl << "Wyniki:"<< std::endl;
 
     for (int i=0; i<n; i++) {
@@ -43,9 +47,10 @@ int main() {
     long double mean=0;
     long double sum=0;
 
+    //TODO: Naprawić liczenie średniej, bo na 99% źle się liczy
     for (int i=0; i < 2*n; i++) {
         sum = sum + factor[i];
-        mean = sum/2*n;
+        mean = sum/(2*n);
     }
 
     std::cout << "Srednia: " << std::to_string(mean);
